@@ -13,7 +13,12 @@
 
 
 ## 🔧 See It in Action:
+```[python]
+config1 = parsing.from_command_line(Configuration)
+config2 = Configuration(epochs=100)
 ```
+
+```[bash]
 >> python main.py -d "ImageNet" --use-test-set
 >> python unittest.py
 ```
