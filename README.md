@@ -13,11 +13,13 @@
 
 
 ## 🔧 See It in Action:
+Define configurations:
 ```[python]
 config1 = parsing.from_command_line(Configuration)
 config2 = Configuration(epochs=100)
 ```
 
+Run this code:
 ```[bash]
 >> python main.py -d "ImageNet" --use-test-set
 >> python unittest.py
