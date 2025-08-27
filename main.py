@@ -10,6 +10,11 @@ class Configuration:
     epochs: int = 24
     use_test_set: bool = False
 
+    @classmethod
+    def from_command_line(cls):
+        args = parsing.create_parser(cls).parse_args()
+        return cls(**vars(args))
+
 
 def this_function_needs_a_configuration(c: Configuration):
     """ Placeholder function e.g. for a training script. """
@@ -18,8 +23,14 @@ def this_function_needs_a_configuration(c: Configuration):
 
 
 def main():
-    my_config = parsing.from_command_line(Configuration)
+    print("\nConfiguration.from_command_line():")
+    my_config = Configuration.from_command_line()
     result = this_function_needs_a_configuration(my_config)
+    print(result)
+
+    print("\nConfiguration(epochs=1):")
+    my_other_config = Configuration(epochs=1)
+    result = this_function_needs_a_configuration(my_other_config)
     print(result)
 
 
