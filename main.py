@@ -1,10 +1,9 @@
 from dataclasses import dataclass
 
 import parsing
-from parsing import with_short_flags, create_parser
 
 
-@with_short_flags(dataset_name="-d", epochs="-e")
+@parsing.with_short_flags(dataset_name="-d", epochs="-e")
 @dataclass
 class Configuration:
     dataset_name: str = "CIFAR-10"
