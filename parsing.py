@@ -17,7 +17,6 @@ def create_parser(cls) -> argparse.ArgumentParser:
 
     parser = argparse.ArgumentParser()
     short_flags = getattr(cls, "__short_flags__", {})
-    print(short_flags)
 
     for field in dataclasses.fields(cls):
         arg_name = f"--{field.name}".replace("_", "-")
@@ -35,3 +34,9 @@ def create_parser(cls) -> argparse.ArgumentParser:
         else:
             parser.add_argument(*flags, type=arg_type, default=arg_default)
     return parser
+
+
+def from_command_line(cls):
+    parser = create_parser(cls)
+    args = parser.parse_args()
+    return cls(**vars(args))

@@ -2,12 +2,12 @@ from main import Configuration, this_function_needs_a_configuration
 
 
 def test_this_function_needs_a_configuration():
-    c = Configuration(batch_size=512)
-    target = "Using SGD with c.learning_rate=0.1 and c.batch_size=512."
+    c = Configuration(epochs=100)
+    target = "Training on CIFAR-10 for 100 epochs. Evaluating on validation data."
 
     result = this_function_needs_a_configuration(c)
 
-    assert result == target
+    assert result == target, result
 
 
 if __name__ == '__main__':

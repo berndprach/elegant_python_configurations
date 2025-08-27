@@ -1,25 +1,20 @@
 
 # Elegant Python Configuration
-Code for our blog post [Elegant Python Configurations]().
+*Lightweight, CLI-friendly and Autocomplete-friendly Python Configuration.*
 
-## Description
+👉 [Read the blog post](https://berndprach.github.io/blog-posts/2025/08/ElegantConfigurationsInPython/).
 
-This code allows defining configuration as `dataclasses` 
-in a simple, readable way that also allows typing.
-See [main.py](main.py).
+## ✨ Highlights
+- 👓 Readable definitions with clean @dataclass syntax. ([main.py](main.py))
+- ⌨ Autocomplete friendly, avoids typos.
+- 🧼 Minimal parsing logic. ([parsing.py](parsing.py))
+- 🛠️ CLI-friendly. Also support short flags like `-d`.
+- 🧪 Testable. Use direct instantiation for unit tests. ([unittest.py](unittest.py))
 
-It also allows creating instances based on command line arguments 
-(and the help of argparse), by creating a parser based on the
-dataclass. See [parsing.py](parsing.py).
 
-## Usage 
-We can use this configuration based on command line arguments,
-but we can also initiate it directly. This is very helpful e.g.
-for unit tests. 
-
-Try it out:
+## 🔧 See It in Action:
 ```
->> python main.py --dataset_name="1." --optimizer_name ADAM
+>> python main.py -d "ImageNet" --use-test-set
 >> python unittest.py
 ```
 

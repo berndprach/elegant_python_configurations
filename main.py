@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+import parsing
 from parsing import with_short_flags, create_parser
 
 
@@ -10,21 +11,15 @@ class Configuration:
     epochs: int = 24
     use_test_set: bool = False
 
-    @classmethod
-    def from_command_line_arguments(cls):
-        parser = create_parser(cls)
-        args = parser.parse_args()
-        return cls(**vars(args))
-
-
 
 def this_function_needs_a_configuration(c: Configuration):
-    partition = "test" if c.use_test_set else "train"
-    return f"Training on {c.dataset_name} ({partition}) for {c.epochs} epochs."
+    """ Placeholder function e.g. for a training script. """
+    partition = "test" if c.use_test_set else "validation"
+    return f"Training on {c.dataset_name} for {c.epochs} epochs. Evaluating on {partition} data."
 
 
 def main():
-    my_config = Configuration.from_command_line_arguments()
+    my_config = parsing.from_command_line(Configuration)
     result = this_function_needs_a_configuration(my_config)
     print(result)
 
